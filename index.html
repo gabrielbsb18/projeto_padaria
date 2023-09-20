@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Padaria - Sistema de Pedidos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Padaria - Sistema de Pedidos</h1>
+
+    <h2>Estoque</h2>
+    <ul>
+        {% for item in estoque %}
+            <li>{{ item[0] }} - {{ item[1] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Adicionar ao Estoque</h2>
+    <form action="/adicionar" method="post">
+        Produto: <input type="text" name="produto"><br>
+        Quantidade: <input type="number" name="quantidade"><br>
+        <input type="submit" value="Adicionar">
+    </form>
+
+    <h2>Fazer Pedido</h2>
+    <form action="/pedido" method="post">
+        
+        Produto: <input type="text" name="produto_pedido"><br>
+        Quantidade: <input type="number" name="quantidade_pedido"><br>
+        <input type="submit" value="Fazer Pedido">
+    </form>
+</body>
+</html>
